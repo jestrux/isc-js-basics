@@ -12,8 +12,8 @@
         <h1>Conversation Generator</h1>
         <p>
             Quick tool to help you generate fake conversations for memes and stuff ( <a href="https://www.youtube.com/watch?v=N-BMzEnqhCQ" target="_blank">Don't say and stuff</a>  ). 
-            Customize the look and feel of the conversation and click take screenshot and go meme away.
-            Enjoy!!!
+            <!-- Customize the look and feel of the conversation and click take screenshot and go meme away. -->
+            <!-- Enjoy!!! -->
         </p>
 
         <div id="customize">
@@ -40,9 +40,45 @@
             <div class="flex items-center">
                 Dark Mode
                 
-                <button id="darkModeButton" class="flex" onclick="toggleDarkMode(event)">
+                <button id="darkModeButton" class="flex toggle-button" onclick="toggleDarkMode(event)">
                     <span>&nbsp;</span>
                 </button>
+            </div>
+
+            <br/><br/>
+
+            <div id="newMessageComposer">
+                <h2>Add new message</h2>
+
+                <div id="newMessageInputWrapper">
+                    <input type="text" placeholder="Enter new message here" />
+                    <label for="imageInput" class="flex items-center">
+                        <svg height="22" width="22" viewBox="0 0 24 24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 3L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2h-3.17L15 3H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/><path d="M12 17l1.25-2.75L16 13l-2.75-1.25L12 9l-1.25 2.75L8 13l2.75 1.25z"/></svg>
+                    </label>
+
+                    <input id="imageInput" type="file" hidden onchange="imagePicked(event)" accept="image/png, image/jpg, image/webp" />
+                </div>
+    
+                <div class="flex items-center">
+                    <div id="quickEmojis">
+                        <button onclick="addEmoji('😂')">😂</button>
+                        <button onclick="addEmoji('😡')">😡</button>
+                        <button onclick="addEmoji('😍')">😍</button>
+                        <button onclick="addEmoji('🥰')">🥰</button>
+                        <button onclick="addEmoji('🤦‍♂️')">🤦‍♂️</button>
+                        <button onclick="addEmoji('🙄')">🙄</button>
+                        <button onclick="addEmoji('👋')">👋</button>
+                    </div>
+                    <div class="flex">
+                        Sending: 
+                        <button id="toggleSendingModeButton" class="on flex toggle-button" onclick="toggleSendingMode(event)">
+                            <span>&nbsp;</span>
+                        </button>
+                    </div>
+                    <button id="submitButton" class="flex" onclick="addNewMessage()">
+                        Send Message
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -51,50 +87,13 @@
             Take Screenshot
         </button>
     </div>
-    <div id="lisimu" class="flex flex-col">
-        <div class="message">
-            Ahem...ignoring what you said there👋
-        </div>
 
-        <div class="message sent">
-            What did I say?🤔
-        </div>
+    <div id="lisimu" class="flex flex-col"></div>
 
-        <div class="message">
-            Kwani we huoni?
-        </div>
+    <audio id="screenshotSound" src="screenshot.mp3"></audio>
 
-        <div class="message">
-            The last text you sent me?
-        </div>
-
-        <div class="message sent">
-            Oh that? Grow up, I was just kidding😅
-        </div>
-
-        <div class="message">
-            Utani gani hauna emoji?😂😂
-        </div>
-
-        <div class="message sent">
-            Just get lost weirdo😏
-        </div>
-
-        <div class="message sent">
-            Oh btw, whatever happened to my copy of HP?
-        </div>
-
-        <div class="message">
-            Oh I sold that😂😂😂
-        </div>
-
-        <div class="message sent">
-            WTF, it wasn't mine😧
-        </div>
-
-        <!-- <input type="text" placeholder="Type message here" /> -->
-    </div>
-
+    <script src="download.min.js"></script>
+    <script src="dom-to-image.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
